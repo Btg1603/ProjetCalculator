@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Thân máy và nền -->
+    <color name="casio_body">#121212</color>
+    <color name="casio_keypad_bg">#1A1A1B</color>
+
+    <!-- Màn hình LCD Modern -->
+    <color name="lcd_bg">#2C2F2C</color> <!-- Dark LCD style -->
+    <color name="lcd_text">#E0E0E0</color>
+    <color name="lcd_glow">#40FFFFFF</color>
+
+    <!-- Màu nút bấm -->
+    <color name="btn_number">#333333</color>
+    <color name="btn_function">#25272E</color>
+    <color name="btn_op">#3D4048</color>
+
+    <!-- Nút đặc biệt -->
+    <color name="btn_shift">#FFD600</color> <!-- Vàng -->
+    <color name="btn_alpha">#FF1744</color> <!-- Đỏ -->
+    <color name="btn_ac">#FF9100</color>    <!-- Cam -->
+    <color name="btn_exec">#64B5F6</color>  <!-- Xanh dương sáng (EXE) -->
+
+<!--     Text trên nút-->
+
+    <color name="text_white">#FFFFFF</color>
+
+    <color name="text_gray">#9E9E9E</color>
+
+
+</resources>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="op_clear">C</string>
+    <string name="op_percent">%</string>
+    <string name="op_divide">÷</string>
+    <string name="op_multiply">×</string>
+    <string name="op_subtract">−</string>
+    <string name="op_add">+</string>
+    <string name="op_equal">=</string>
+    <string name="op_dot">.</string>
+    <string name="op_plus_minus">±</string>
+
+    <string name="sci_sin">sin</string>
+    <string name="sci_cos">cos</string>
+    <string name="sci_tan">tan</string>
+    <string name="sci_log">log</string>
+    <string name="sci_ln">ln</string>
+    <string name="sci_sqrt">√</string>
+    <string name="sci_sq">x²</string>
+    <string name="sci_pow">xʸ</string>
+    <string name="sci_fact">n!</string>
+    <string name="sci_pi">π</string>
+    <string name="sci_lparen">(</string>
+    <string name="sci_rparen">)</string>
+</resources>

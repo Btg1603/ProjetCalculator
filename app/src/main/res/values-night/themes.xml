@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ProjectCalculater" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/btn_exec</item>
+        <item name="android:statusBarColor">@color/casio_body</item>
+        <item name="android:navigationBarColor">@color/casio_body</item>
+    </style>
+</resources>

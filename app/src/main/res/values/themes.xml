@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ProjectCalculater" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/btn_exec</item>
+        <item name="android:statusBarColor">@color/casio_body</item>
+        <item name="android:navigationBarColor">@color/casio_body</item>
+    </style>
+
+    <style name="Theme.ProjectCalculater" parent="Base.Theme.ProjectCalculater" />
+
+    <!-- Style cho màn hình LCD -->
+    <style name="CasioScreen">
+        <item name="android:background">@color/lcd_bg</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Style cho phím bấm Casio 880VN X (Phím tròn) -->
+    <style name="CasioButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Casio.Circle</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <style name="CasioButton.Number">
+        <item name="backgroundTint">@color/btn_number</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CasioButton.Function">
+        <item name="backgroundTint">@color/btn_function</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CasioButton.Operator">
+        <item name="backgroundTint">@color/btn_op</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CasioButton.Action">
+        <item name="android:textColor">@color/casio_body</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ShapeAppearance.Casio.Circle" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>
