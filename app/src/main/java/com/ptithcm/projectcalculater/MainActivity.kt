@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Theo dõi sự thay đổi của biểu thức và kết quả để hiển thị lên màn hình
         viewModel.expression.observe(this) {
             binding.tvExpression.text = it
         }
@@ -25,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             binding.tvResult.text = it
         }
 
-        // Theo dõi trạng thái SHIFT và ALPHA
         viewModel.isShiftActive.observe(this) { active ->
             binding.indicatorShift.visibility = if (active) View.VISIBLE else View.INVISIBLE
         }
@@ -37,6 +35,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
+
+        binding.btnShift.setOnClickListener {
+            viewModel.toggleShift()
+        }
 
         val numberButtons = mapOf(
             binding.btn0 to "0",
@@ -58,6 +60,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnKeypadX.setOnClickListener {
+            viewModel.append("x")
+        }
+
+        binding.btnVariable.setOnClickListener {
+            viewModel.append("x")
+        }
+
         binding.btnAdd.setOnClickListener {
             viewModel.append("+")
         }
@@ -74,48 +84,56 @@ class MainActivity : AppCompatActivity() {
             viewModel.append("÷")
         }
 
-        binding.btnOpenBracket?.setOnClickListener {
+        binding.btnOpenBracket.setOnClickListener {
             viewModel.append("(")
         }
 
-        binding.btnCloseBracket?.setOnClickListener {
+        binding.btnCloseBracket.setOnClickListener {
             viewModel.append(")")
         }
 
-        binding.btnPow?.setOnClickListener {
+        binding.btnPow.setOnClickListener {
             viewModel.append("^")
         }
 
-        binding.btnSqrt?.setOnClickListener {
+        binding.btnSquare.setOnClickListener {
+            viewModel.append("^2")
+        }
+
+        binding.btnSqrt.setOnClickListener {
             viewModel.append("√(")
         }
 
-        binding.btnSin?.setOnClickListener {
+        binding.btnSin.setOnClickListener {
             viewModel.append("sin(")
         }
 
-        binding.btnCos?.setOnClickListener {
+        binding.btnCos.setOnClickListener {
             viewModel.append("cos(")
         }
 
-        binding.btnTan?.setOnClickListener {
+        binding.btnTan.setOnClickListener {
             viewModel.append("tan(")
         }
 
-        binding.btnLog?.setOnClickListener {
+        binding.btnLog.setOnClickListener {
             viewModel.append("log(")
         }
 
-        binding.btnLn?.setOnClickListener {
+        binding.btnLn.setOnClickListener {
             viewModel.append("ln(")
         }
 
-        binding.btnAns?.setOnClickListener {
+        binding.btnAns.setOnClickListener {
             viewModel.append("Ans")
         }
 
-        binding.btnExpConst?.setOnClickListener {
+        binding.btnExpConst.setOnClickListener {
             viewModel.append("E")
+        }
+
+        binding.btnComma.setOnClickListener {
+            viewModel.append(",")
         }
 
         binding.btnAc.setOnClickListener {

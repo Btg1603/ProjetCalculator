@@ -1,56 +1,83 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ProjectCalculater" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="colorPrimary">@color/btn_exec</item>
+        <item name="colorPrimary">@color/btn_shift</item>
         <item name="android:statusBarColor">@color/casio_body</item>
         <item name="android:navigationBarColor">@color/casio_body</item>
     </style>
 
     <style name="Theme.ProjectCalculater" parent="Base.Theme.ProjectCalculater" />
 
-    <!-- Style cho màn hình LCD -->
+    <!-- Style cho màn hình LCD fx-880 -->
     <style name="CasioScreen">
         <item name="android:background">@color/lcd_bg</item>
         <item name="android:padding">12dp</item>
     </style>
 
-    <!-- Style cho phím bấm Casio 880VN X (Phím tròn) -->
+    <!-- Base Style cho phím bấm Casio (Tròn hoàn hảo) -->
     <style name="CasioButton" parent="Widget.Material3.Button.TonalButton">
-        <item name="android:layout_width">56dp</item>
-        <item name="android:layout_height">56dp</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
         <item name="android:padding">0dp</item>
         <item name="shapeAppearance">@style/ShapeAppearance.Casio.Circle</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="cornerRadius">10dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <!-- Nút số (Xám nhạt, Chữ đen) -->
     <style name="CasioButton.Number">
         <item name="backgroundTint">@color/btn_number</item>
-        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textColor">@color/text_on_number</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="CasioButton.Function">
+    <!-- Nút chức năng/Toán tử (Đen nhám, Chữ trắng) -->
+    <style name="CasioButton.Dark">
         <item name="backgroundTint">@color/btn_function</item>
-        <item name="android:textColor">@color/text_white</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_on_dark</item>
     </style>
 
-    <style name="CasioButton.Operator">
-        <item name="backgroundTint">@color/btn_op</item>
-        <item name="android:textColor">@color/text_white</item>
-        <item name="android:textSize">18sp</item>
-    </style>
-
-    <style name="CasioButton.Action">
-        <item name="android:textColor">@color/casio_body</item>
+    <!-- Nút Shift (Vàng đồng) -->
+    <style name="CasioButton.Shift">
+        <item name="backgroundTint">@color/btn_shift</item>
+        <item name="android:textColor">@color/text_on_shift_btn</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:text">SHIFT</item>
+    </style>
+
+    <!-- Viên thuốc: DEL / AC / FORMAT / EXE -->
+    <style name="ShapeAppearance.Casio.Pill" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">22dp</item>
+    </style>
+
+    <style name="CasioButton.Pill" parent="CasioButton.Dark">
+        <item name="shapeAppearance">@style/ShapeAppearance.Casio.Pill</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+    </style>
+
+    <!-- Nút AC/DEL (Đỏ cam) -->
+    <style name="CasioButton.Action">
+        <item name="backgroundTint">@color/btn_ac_del</item>
+        <item name="android:textColor">@color/text_on_dark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Nút điều hướng nhỏ -->
+    <style name="CasioButton.Nav">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textSize">9sp</item>
+        <item name="backgroundTint">@color/btn_nav</item>
+        <item name="android:textColor">@color/text_on_dark</item>
     </style>
 
     <style name="ShapeAppearance.Casio.Circle" parent="ShapeAppearance.Material3.MediumComponent">

@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Thân máy và nền -->
-    <color name="casio_body">#121212</color>
-    <color name="casio_keypad_bg">#1A1A1B</color>
+    <!-- Thân máy matte black (fx-880BTG) -->
+    <color name="casio_body">#0A0A0A</color>
+    <color name="casio_keypad_bg">#0D0D0D</color>
+    <color name="casio_bezel">#151515</color>
 
-    <!-- Màn hình LCD Modern -->
-    <color name="lcd_bg">#2C2F2C</color> <!-- Dark LCD style -->
-    <color name="lcd_text">#E0E0E0</color>
-    <color name="lcd_glow">#40FFFFFF</color>
+    <!-- Màn hình LCD ClassWiz (xám xanh nhạt) -->
+    <color name="lcd_bg">#B8C4B0</color>
+    <color name="lcd_bg_deep">#9AAA90</color>
+    <color name="lcd_text">#1A1A1A</color>
+    <color name="lcd_indicator">#2D2D2D</color>
+    <color name="lcd_menu_muted">#4A5245</color>
+    <color name="lcd_menu_selected_bg">#1E1E1E</color>
+    <color name="lcd_menu_selected_fg">#E8E8E8</color>
 
-    <!-- Màu nút bấm -->
-    <color name="btn_number">#333333</color>
-    <color name="btn_function">#25272E</color>
-    <color name="btn_op">#3D4048</color>
+    <!-- Phím: xám đậm / số xám sáng hơn -->
+    <color name="btn_number">#B8B8BA</color>
+    <color name="btn_function">#353537</color>
+    <color name="btn_operator">#353537</color>
+    <color name="btn_nav">#2E2E30</color>
 
-    <!-- Nút đặc biệt -->
-    <color name="btn_shift">#FFD600</color> <!-- Vàng -->
-    <color name="btn_alpha">#FF1744</color> <!-- Đỏ -->
-    <color name="btn_ac">#FF9100</color>    <!-- Cam -->
-    <color name="btn_exec">#64B5F6</color>  <!-- Xanh dương sáng (EXE) -->
+    <!-- SHIFT vàng đồng -->
+    <color name="btn_shift">#C9A227</color>
+    <color name="btn_ac_del">#CC4125</color>
+    <color name="btn_exec">#C9A227</color>
 
-<!--     Text trên nút-->
-
-    <color name="text_white">#FFFFFF</color>
-
-    <color name="text_gray">#9E9E9E</color>
-
-
+    <color name="text_on_number">#0D0D0D</color>
+    <color name="text_on_dark">#F5F5F5</color>
+    <color name="text_on_shift_btn">#1A1204</color>
+    <color name="text_shift_label">#C9A227</color>
+    <color name="text_brand">#EAEAEA</color>
 </resources>
