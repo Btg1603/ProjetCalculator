@@ -17,12 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.expression.observe(this) {
-            binding.tvExpression.text = it
-        }
-        viewModel.result.observe(this) {
-            binding.tvResult.text = it
-        }
+        viewModel.expression.observe(this) { binding.tvExpression.text = it }
+        viewModel.result.observe(this)     { binding.tvResult.text     = it }
 
         viewModel.isShiftActive.observe(this) { active ->
             binding.indicatorShift.visibility = if (active) View.VISIBLE else View.INVISIBLE
@@ -36,116 +32,78 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupClickListeners() {
 
-        binding.btnShift.setOnClickListener {
-            viewModel.toggleShift()
-        }
+        // System
+        binding.btnOn.setOnClickListener       { viewModel.clearAll() }
+        binding.btnShift.setOnClickListener    { viewModel.toggleShift() }
+        binding.btnHome.setOnClickListener     { viewModel.clearAll() }
+        binding.btnBack.setOnClickListener     { viewModel.deleteLast() }
+        binding.btnSettings.setOnClickListener { }
 
-        val numberButtons = mapOf(
-            binding.btn0 to "0",
-            binding.btn1 to "1",
-            binding.btn2 to "2",
-            binding.btn3 to "3",
-            binding.btn4 to "4",
-            binding.btn5 to "5",
-            binding.btn6 to "6",
-            binding.btn7 to "7",
-            binding.btn8 to "8",
-            binding.btn9 to "9",
-            binding.btnDot to "."
-        )
+        // D-Pad
+        binding.btnOk.setOnClickListener         { viewModel.calculate() }
+        binding.btnLeft.setOnClickListener       { viewModel.moveCursorLeft() }
+        binding.btnRight.setOnClickListener      { viewModel.moveCursorRight() }
+        binding.btnUp.setOnClickListener         { viewModel.historyPrev() }
+        binding.btnDown.setOnClickListener       { viewModel.historyNext() }
+        binding.btnScrollUp.setOnClickListener   { viewModel.scrollUp() }
+        binding.btnScrollDown.setOnClickListener { viewModel.scrollDown() }
 
-        numberButtons.forEach { (btn, value) ->
-            btn.setOnClickListener {
-                viewModel.append(value)
-            }
-        }
+        // Function strip
+        binding.btnVariable.setOnClickListener { viewModel.append("x") }
+        binding.btnFunction.setOnClickListener { }
+        binding.btnCatalog.setOnClickListener  { }
+        binding.btnTools.setOnClickListener    { }
 
-        binding.btnKeypadX.setOnClickListener {
-            viewModel.append("x")
-        }
+        // Numbers
+        mapOf(
+            binding.btn0 to "0", binding.btn1 to "1", binding.btn2 to "2",
+            binding.btn3 to "3", binding.btn4 to "4", binding.btn5 to "5",
+            binding.btn6 to "6", binding.btn7 to "7", binding.btn8 to "8",
+            binding.btn9 to "9", binding.btnDot to "."
+        ).forEach { (btn, v) -> btn.setOnClickListener { viewModel.append(v) } }
 
-        binding.btnVariable.setOnClickListener {
-            viewModel.append("x")
-        }
+        // Operators
+        binding.btnAdd.setOnClickListener { viewModel.append("+") }
+        binding.btnSub.setOnClickListener { viewModel.append("-") }
+        binding.btnMul.setOnClickListener { viewModel.append("×") }
+        binding.btnDiv.setOnClickListener { viewModel.append("÷") }
 
-        binding.btnAdd.setOnClickListener {
-            viewModel.append("+")
-        }
+        // Brackets
+        binding.btnOpenBracket.setOnClickListener { viewModel.append("(") }
 
-        binding.btnSub.setOnClickListener {
-            viewModel.append("-")
-        }
+        // Trig
+        binding.btnSin.setOnClickListener  { viewModel.append("sin(") }
+        binding.btnCos.setOnClickListener  { viewModel.append("cos(") }
+        binding.btnTan.setOnClickListener  { viewModel.append("tan(") }
+        binding.btnAsin.setOnClickListener { viewModel.append("asin(") }
+        binding.btnAcos.setOnClickListener { viewModel.append("acos(") }
+        binding.btnAtan.setOnClickListener { viewModel.append("atan(") }
 
-        binding.btnMul.setOnClickListener {
-            viewModel.append("×")
-        }
+        // Log / constants
+        binding.btnLog.setOnClickListener { viewModel.append("log(") }
+        binding.btnLn.setOnClickListener  { viewModel.append("ln(") }
+        binding.btnPi.setOnClickListener  { viewModel.append("π") }
 
-        binding.btnDiv.setOnClickListener {
-            viewModel.append("÷")
-        }
+        // Roots / power
+        binding.btnSqrt.setOnClickListener       { viewModel.append("√(") }
+        binding.btnCbrt.setOnClickListener       { viewModel.append("∛(") }
+        binding.btnReciprocal.setOnClickListener { viewModel.append("^(-1)") }
+        binding.btnInv.setOnClickListener        { viewModel.append("^(-1)") }
 
-        binding.btnOpenBracket.setOnClickListener {
-            viewModel.append("(")
-        }
+        // Factorial
+        binding.btnFactorial.setOnClickListener { viewModel.append("!") }
 
-        binding.btnCloseBracket.setOnClickListener {
-            viewModel.append(")")
-        }
+        // Scientific notation
+        binding.btnExpConst.setOnClickListener { viewModel.append("E") }
 
-        binding.btnPow.setOnClickListener {
-            viewModel.append("^")
-        }
+        // Delete / execute
+        binding.btnDel.setOnClickListener    { viewModel.deleteLast() }
+        binding.btnAc.setOnClickListener     { viewModel.clearAll() }
+        binding.btnExe.setOnClickListener    { viewModel.calculate() }
+        binding.btnFormat.setOnClickListener { viewModel.toggleFormat() }
 
-        binding.btnSquare.setOnClickListener {
-            viewModel.append("^2")
-        }
-
-        binding.btnSqrt.setOnClickListener {
-            viewModel.append("√(")
-        }
-
-        binding.btnSin.setOnClickListener {
-            viewModel.append("sin(")
-        }
-
-        binding.btnCos.setOnClickListener {
-            viewModel.append("cos(")
-        }
-
-        binding.btnTan.setOnClickListener {
-            viewModel.append("tan(")
-        }
-
-        binding.btnLog.setOnClickListener {
-            viewModel.append("log(")
-        }
-
-        binding.btnLn.setOnClickListener {
-            viewModel.append("ln(")
-        }
-
-        binding.btnAns.setOnClickListener {
-            viewModel.append("Ans")
-        }
-
-        binding.btnExpConst.setOnClickListener {
-            viewModel.append("E")
-        }
-
-        binding.btnComma.setOnClickListener {
-            viewModel.append(",")
-        }
-
-        binding.btnAc.setOnClickListener {
-            viewModel.clearAll()
-        }
-
-        binding.btnDel.setOnClickListener {
-            viewModel.deleteLast()
-        }
-
-        binding.btnExe.setOnClickListener {
-            viewModel.calculate()
-        }
+        // Row 8
+        binding.btnOff.setOnClickListener { finish() }
+        binding.btnIns.setOnClickListener { }
     }
 }

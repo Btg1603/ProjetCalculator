@@ -1,7 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Calculator</string>
+
+    <!-- ============================================
+         BASIC OPERATIONS
+         ============================================ -->
     <string name="op_clear">C</string>
+    <string name="op_clear_long">AC</string>
+    <string name="op_delete">DEL</string>
     <string name="op_percent">%</string>
+
     <string name="op_divide">÷</string>
     <string name="op_multiply">×</string>
     <string name="op_subtract">−</string>
@@ -10,16 +18,114 @@
     <string name="op_dot">.</string>
     <string name="op_plus_minus">±</string>
 
+    <!-- ============================================
+         SCIENTIFIC FUNCTIONS
+         ============================================ -->
+    <!-- Trig functions -->
     <string name="sci_sin">sin</string>
     <string name="sci_cos">cos</string>
     <string name="sci_tan">tan</string>
+    <string name="sci_sin_inv">sin⁻¹</string>
+    <string name="sci_cos_inv">cos⁻¹</string>
+    <string name="sci_tan_inv">tan⁻¹</string>
+
+    <!-- Logarithm -->
     <string name="sci_log">log</string>
     <string name="sci_ln">ln</string>
+
+    <!-- Power & roots -->
     <string name="sci_sqrt">√</string>
+    <string name="sci_cbrt">∛</string>
     <string name="sci_sq">x²</string>
-    <string name="sci_pow">xʸ</string>
-    <string name="sci_fact">n!</string>
-    <string name="sci_pi">π</string>
+    <string name="sci_pow">xⁿ</string>
+    <string name="sci_root_n">□ⁿ√</string>
+    <string name="sci_reciprocal">□⁻¹</string>
+    <string name="sci_factorial">□!</string>
+
+    <!-- Calculus -->
+    <string name="sci_integral">∫</string>
+    <string name="sci_derivative">d/dx</string>
+    <string name="sci_summation">∑</string>
+
+    <!-- Parenthesis -->
     <string name="sci_lparen">(</string>
     <string name="sci_rparen">)</string>
+
+    <!-- ============================================
+         CONSTANTS & VARIABLES
+         ============================================ -->
+    <string name="const_pi">π</string>
+    <string name="const_e">e</string>
+    <string name="const_ans">Ans</string>
+
+    <string name="var_x">x</string>
+    <string name="var_y">y</string>
+    <string name="var_z">z</string>
+    <string name="var_t">t</string>
+
+    <!-- ============================================
+         SPECIAL NOTATIONS
+         ============================================ -->
+    <string name="notation_exp">×10ⁿ</string>
+    <string name="notation_fraction">□/□</string>
+
+    <!-- ============================================
+         NAVIGATION & FUNCTION BUTTONS
+         ============================================ -->
+    <string name="btn_on">ON</string>
+    <string name="btn_settings">SETTINGS</string>
+    <string name="btn_shift">SHIFT</string>
+    <string name="btn_home">HOME</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_back">BACK</string>
+    <string name="btn_variable">VARIABLE</string>
+    <string name="btn_function">FUNCTION</string>
+    <string name="btn_catalog">CATALOG</string>
+    <string name="btn_tools">TOOLS</string>
+    <string name="btn_format">FORMAT</string>
+    <string name="btn_exe">EXE</string>
+
+    <!-- ============================================
+         SHIFT-ACTIVATED FUNCTIONS
+         ============================================ -->
+    <string name="shift_qr">QR</string>
+    <string name="shift_pre">Pre</string>
+    <string name="shift_arc">Arc</string>
+    <string name="shift_ans">Ans</string>
+    <string name="shift_t">t</string>
+    <string name="shift_y">y</string>
+    <string name="shift_z">z</string>
+
+    <!-- Shift-activated operations -->
+    <string name="shift_insert">INS</string>
+    <string name="shift_off">OFF</string>
+
+    <!-- ============================================
+         MODE & DISPLAY INDICATORS
+         ============================================ -->
+    <string name="mode_deg">DEG</string>
+    <string name="mode_rad">RAD</string>
+    <string name="mode_grad">GRAD</string>
+    <string name="mode_classwiz">CLASSWIZ</string>
+
+    <string name="indicator_shift">S</string>
+    <string name="indicator_alpha">A</string>
+
+    <!-- ============================================
+         MENU ITEMS
+         ============================================ -->
+    <string name="menu_calculate">Calculate</string>
+    <string name="menu_statistics">Statistics</string>
+    <string name="menu_distribution">Distribution</string>
+    <string name="menu_spreadsheet">Spreadsheet</string>
+    <string name="menu_table">Table</string>
+    <string name="menu_equation">Equation</string>
+
+    <!-- ============================================
+         ERROR & STATUS MESSAGES
+         ============================================ -->
+    <string name="error_syntax">Syntax Error</string>
+    <string name="error_math">Math Error</string>
+    <string name="error_stack">Stack Error</string>
+
 </resources>

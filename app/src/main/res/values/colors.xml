@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Thân máy matte black (fx-880BTG) -->
+    <!-- ============================================
+         CASIO BODY - Thân máy
+         ============================================ -->
+    <!-- Matte black như máy Casio thực tế -->
     <color name="casio_body">#0A0A0A</color>
     <color name="casio_keypad_bg">#0D0D0D</color>
     <color name="casio_bezel">#151515</color>
 
-    <!-- Màn hình LCD ClassWiz (xám xanh nhạt) -->
+    <!-- ============================================
+         LCD SCREEN - Màn hình
+         ============================================ -->
+    <!-- ClassWiz LCD: xám xanh nhạt -->
     <color name="lcd_bg">#B8C4B0</color>
     <color name="lcd_bg_deep">#9AAA90</color>
     <color name="lcd_text">#1A1A1A</color>
     <color name="lcd_indicator">#2D2D2D</color>
+
+    <!-- Menu items trên LCD -->
     <color name="lcd_menu_muted">#4A5245</color>
     <color name="lcd_menu_selected_bg">#1E1E1E</color>
     <color name="lcd_menu_selected_fg">#E8E8E8</color>
 
-    <!-- Phím: xám đậm / số xám sáng hơn -->
+    <!-- ============================================
+         BUTTONS - Nút bấm
+         ============================================ -->
+    <!-- Số: xám sáng (B8B8BA) -->
     <color name="btn_number">#B8B8BA</color>
+
+    <!-- Chức năng/Khoa học/Toán tử: đen nhám -->
     <color name="btn_function">#353537</color>
     <color name="btn_operator">#353537</color>
+
+    <!-- Điều hướng (ON, HOME, SETTINGS): xám đậm hơn -->
     <color name="btn_nav">#2E2E30</color>
 
-    <!-- SHIFT vàng đồng -->
+    <!-- SHIFT: vàng đồng -->
     <color name="btn_shift">#C9A227</color>
+
+    <!-- AC/DEL: đỏ cam (action color) -->
     <color name="btn_ac_del">#CC4125</color>
+
+    <!-- EXE/FORMAT: vàng đồng -->
     <color name="btn_exec">#C9A227</color>
 
+    <!-- ============================================
+         TEXT COLORS - Màu chữ
+         ============================================ -->
+    <!-- Chữ trên nút số: đen -->
     <color name="text_on_number">#0D0D0D</color>
+
+    <!-- Chữ trên nút tối: trắng sáng -->
     <color name="text_on_dark">#F5F5F5</color>
+
+    <!-- Chữ trên nút SHIFT: nâu tối -->
     <color name="text_on_shift_btn">#1A1204</color>
+
+    <!-- Text nhỏ shift (vàng): dùng cho QR, Pre, Arc, Ans, e, t, y, z -->
     <color name="text_shift_label">#C9A227</color>
+
+    <!-- Brand text: CASIO, ClassWiz -->
     <color name="text_brand">#EAEAEA</color>
+
+    <!-- ============================================
+         MATERIAL3 OVERRIDE (Optional)
+         ============================================ -->
+    <!-- Dùng nếu cần override Material3 defaults -->
+    <color name="material_on_primary_container">#FFFFFF</color>
+
 </resources>

@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button_size">56dp</dimen>
-    <dimen name="button_margin">4dp</dimen>
+    <!-- ============================================
+         SCREEN & PADDING
+         ============================================ -->
+    <dimen name="screen_padding_horizontal">8dp</dimen>
+    <dimen name="screen_padding_vertical">8dp</dimen>
     <dimen name="screen_corner_radius">16dp</dimen>
-    <dimen name="lcd_text_size_main">36sp</dimen>
-    <dimen name="lcd_text_size_sub">18sp</dimen>
+
+    <!-- ============================================
+         BUTTONS - Kích thước nút
+         ============================================ -->
+    <!-- Nút số & chức năng tiêu chuẩn -->
+    <dimen name="button_size_standard">38dp</dimen>
+
+    <!-- Nút điều hướng nhỏ (ON, HOME, SETTINGS) -->
+    <dimen name="button_size_nav">40dp</dimen>
+
+    <!-- Nút SHIFT -->
+    <dimen name="button_size_shift">38dp</dimen>
+
+    <!-- D-Pad container -->
+    <dimen name="dpad_size">96dp</dimen>
+    <dimen name="dpad_center_size">38dp</dimen>
+    <dimen name="dpad_arrow_size">28dp</dimen>
+
+    <!-- Scroll buttons -->
+    <dimen name="scroll_button_size">24dp</dimen>
+
+    <!-- ============================================
+         TEXT SIZES
+         ============================================ -->
+    <!-- Brand text -->
+    <dimen name="text_size_brand">20sp</dimen>
+    <dimen name="text_size_brand_model">10sp</dimen>
+
+    <!-- LCD Display -->
+    <dimen name="text_size_lcd_expression">14sp</dimen>
+    <dimen name="text_size_lcd_result">22sp</dimen>
+    <dimen name="text_size_lcd_menu">8sp</dimen>
+    <dimen name="text_size_lcd_indicator">8sp</dimen>
+
+    <!-- Button text -->
+    <dimen name="text_size_button_number">16sp</dimen>
+    <dimen name="text_size_button_function">11sp</dimen>
+    <dimen name="text_size_button_nav">8sp</dimen>
+    <dimen name="text_size_button_shift">7sp</dimen>
+    <dimen name="text_size_button_pill">10sp</dimen>
+
+    <!-- Shift label (phía trên nút) -->
+    <dimen name="text_size_shift_label">6sp</dimen>
+
+    <!-- ============================================
+         MARGINS & PADDING
+         ============================================ -->
+    <!-- Grid margin -->
+    <dimen name="grid_margin">1dp</dimen>
+    <dimen name="grid_padding">1dp</dimen>
+
+    <!-- Button margin/padding chung -->
+    <dimen name="button_margin">1dp</dimen>
+    <dimen name="button_padding">0dp</dimen>
+
+    <!-- Navigation section spacing -->
+    <dimen name="nav_section_spacing">4dp</dimen>
+
+    <!-- Function strip margin -->
+    <dimen name="function_strip_margin">1dp</dimen>
+
+    <!-- ============================================
+         SPACING
+         ============================================ -->
+    <!-- Section spacing (giữa các phần chính) -->
+    <dimen name="section_spacing_small">2dp</dimen>
+    <dimen name="section_spacing_medium">4dp</dimen>
+    <dimen name="section_spacing_large">6dp</dimen>
+
+    <!-- ============================================
+         CORNER RADIUS
+         ============================================ -->
+    <!-- Circular buttons (50%) -->
+    <dimen name="corner_radius_circle">50%</dimen>
+
+    <!-- Pill buttons (rounded) -->
+    <dimen name="corner_radius_pill">22dp</dimen>
+
 </resources>
