@@ -27,6 +27,8 @@ class CalculatorViewModel : ViewModel() {
     private val history      = mutableListOf<String>() // lịch sử biểu thức
     private var historyIndex = -1               // con trỏ lịch sử
     private var useDecimal   = true             // FORMAT toggle
+    private var isInsertMode = false            // INSERT mode toggle
+    private var angleMode   = 0                 // 0 = DEG (default), 1 = RAD
 
     // ── Input ─────────────────────────────────────────────────────────────────
 
@@ -94,6 +96,15 @@ class CalculatorViewModel : ViewModel() {
 
     fun toggleAlpha() {
         _isAlphaActive.value = !(_isAlphaActive.value ?: false)
+    }
+
+    // ── Insert Mode & Angle Mode ──────────────────────────────────────────────
+    fun toggleInsertMode() {
+        isInsertMode = !isInsertMode
+    }
+
+    fun setAngleMode(isRadian: Boolean) {
+        angleMode = if (isRadian) 1 else 0
     }
 
     // ── Format (thập phân ↔ phân số / S-D) ───────────────────────────────────
@@ -257,6 +268,16 @@ class CalculatorViewModel : ViewModel() {
                     "sqrt", "√" -> { val a = parenArg(); sqrt(a) }
                     "cbrt", "∛" -> { val a = parenArg(); cbrt(a) }
                     "abs"  -> { val a = parenArg(); abs(a) }
+                    "gcd"  -> { val args = parseArgs(); if (args.size < 2) throw RuntimeException("GCD requires 2 args"); gcd(args[0].toLong(), args[1].toLong()).toDouble() }
+                    "lcm"  -> { val args = parseArgs(); if (args.size < 2) throw RuntimeException("LCM requires 2 args"); lcm(args[0].toLong(), args[1].toLong()).toDouble() }
+                    "mod"  -> { val args = parseArgs(); if (args.size < 2) throw RuntimeException("MOD requires 2 args"); args[0] % args[1] }
+                    "perm" -> { val args = parseArgs(); if (args.size < 2) throw RuntimeException("PERM requires 2 args"); permutation(args[0].toLong(), args[1].toLong()).toDouble() }
+                    "comb" -> { val args = parseArgs(); if (args.size < 2) throw RuntimeException("COMB requires 2 args"); combination(args[0].toLong(), args[1].toLong()).toDouble() }
+                    "round" -> { val a = parenArg(); kotlin.math.round(a) }
+                    "ceil" -> { val a = parenArg(); kotlin.math.ceil(a) }
+                    "floor" -> { val a = parenArg(); kotlin.math.floor(a) }
+                    "rand" -> { Math.random() }
+                    "frac" -> { val a = parenArg(); a - kotlin.math.floor(a) }
                     "pi"   -> Math.PI
                     "e"    -> Math.E
                     else   -> throw RuntimeException("Unknown function: $func")
@@ -279,6 +300,19 @@ class CalculatorViewModel : ViewModel() {
             val v = parseExpr()
             eat(')')
             return v
+        }
+
+        private fun parseArgs(): List<Double> {
+            skipSpaces()
+            if (!eat('(')) throw RuntimeException("Expected '('")
+            val args = mutableListOf<Double>()
+            args.add(parseExpr())
+            while (eat(',')) {
+                skipSpaces()
+                args.add(parseExpr())
+            }
+            eat(')')
+            return args
         }
 
         private fun tryReadIdent(): String? {
@@ -321,5 +355,33 @@ class CalculatorViewModel : ViewModel() {
             for (i in 2..k) r *= i
             return r.toDouble()
         }
+    }
+
+    // ── Additional Math Functions ─────────────────────────────────────────────
+
+    private fun gcd(a: Long, b: Long): Long {
+        return if (b == 0L) a else gcd(b, a % b)
+    }
+
+    private fun lcm(a: Long, b: Long): Long {
+        return a / gcd(a, b) * b
+    }
+
+    private fun permutation(n: Long, r: Long): Long {
+        if (r > n || r < 0) throw ArithmeticException("Invalid permutation")
+        var result = 1L
+        for (i in 0 until r) result *= (n - i)
+        return result
+    }
+
+    private fun combination(n: Long, r: Long): Long {
+        if (r > n || r < 0) throw ArithmeticException("Invalid combination")
+        if (r == 0L || r == n) return 1L
+        val smaller = if (r > n - r) n - r else r
+        var result = 1L
+        for (i in 0 until smaller) {
+            result = result * (n - i) / (i + 1)
+        }
+        return result
     }
 }

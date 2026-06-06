@@ -10,14 +10,14 @@
     <!-- ============================================
          BUTTONS - Kích thước nút
          ============================================ -->
-    <!-- Nút số & chức năng tiêu chuẩn -->
-    <dimen name="button_size_standard">38dp</dimen>
+    <!-- Nút số & chức năng tiêu chuẩn (Material Design spec: 48dp min, 56dp recommended) -->
+    <dimen name="button_size_standard">56dp</dimen>
 
     <!-- Nút điều hướng nhỏ (ON, HOME, SETTINGS) -->
-    <dimen name="button_size_nav">40dp</dimen>
+    <dimen name="button_size_nav">56dp</dimen>
 
     <!-- Nút SHIFT -->
-    <dimen name="button_size_shift">38dp</dimen>
+    <dimen name="button_size_shift">56dp</dimen>
 
     <!-- D-Pad container -->
     <dimen name="dpad_size">96dp</dimen>

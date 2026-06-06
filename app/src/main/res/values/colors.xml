@@ -35,14 +35,14 @@
     <!-- Điều hướng (ON, HOME, SETTINGS): xám đậm hơn -->
     <color name="btn_nav">#2E2E30</color>
 
-    <!-- SHIFT: vàng đồng -->
-    <color name="btn_shift">#C9A227</color>
+    <!-- SHIFT: vàng đồng (secondary accent) -->
+    <color name="btn_shift">#E6A800</color>
 
     <!-- AC/DEL: đỏ cam (action color) -->
     <color name="btn_ac_del">#CC4125</color>
 
-    <!-- EXE/FORMAT: vàng đồng -->
-    <color name="btn_exec">#C9A227</color>
+    <!-- EXE/FORMAT: bright golden (primary accent) -->
+    <color name="btn_exec">#F1C232</color>
 
     <!-- ============================================
          TEXT COLORS - Màu chữ

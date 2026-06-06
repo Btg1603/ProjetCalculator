@@ -12,29 +12,171 @@
     android:paddingBottom="8dp"
     tools:context=".MainActivity">
 
+    <!-- CASIO + model -->
+    <LinearLayout
+        android:id="@+id/brand_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="4dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_brand_casio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.12"
+            android:text="CASIO"
+            android:textColor="@color/text_brand"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_brand_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="fx-880BTG"
+            android:textColor="@color/text_brand"
+            android:textSize="10sp"
+            android:alpha="0.85" />
+    </LinearLayout>
+
+    <!-- LCD Screen -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/screen_container"
         android:layout_width="match_parent"
-        android:layout_height="152dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/bg_display_panel"
-        android:padding="12dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:minHeight="110dp"
+        android:background="@drawable/bg_lcd_screen"
+        android:paddingStart="8dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@id/brand_block">
+
+        <!-- Dialog icon (moved into screen area for easier reach) -->
+        <ImageButton
+            android:id="@+id/btn_dlg"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_margin="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Dialog"
+            android:padding="4dp"
+            android:src="@android:drawable/ic_dialog_info"
+            android:tint="@color/text_on_dark"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <GridLayout
+            android:id="@+id/lcd_menu_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:useDefaultMargins="false"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:background="@drawable/bg_lcd_menu_selected"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Calculate"
+                android:textColor="@color/lcd_menu_selected_fg"
+                android:textSize="8sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Statistics"
+                android:textColor="@color/lcd_menu_muted"
+                android:textSize="8sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Distribution"
+                android:textColor="@color/lcd_menu_muted"
+                android:textSize="8sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Spreadsheet"
+                android:textColor="@color/lcd_menu_muted"
+                android:textSize="8sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Table"
+                android:textColor="@color/lcd_menu_muted"
+                android:textSize="8sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Equation"
+                android:textColor="@color/lcd_menu_muted"
+                android:textSize="8sp" />
+        </GridLayout>
+
+        <View
+            android:id="@+id/lcd_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="4dp"
+            android:background="#6A7560"
+            app:layout_constraintTop_toBottomOf="@id/lcd_menu_grid" />
 
         <LinearLayout
             android:id="@+id/status_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/lcd_divider">
 
             <TextView
                 android:id="@+id/indicator_shift"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="S"
-                android:textColor="#C8CDD9"
-                android:textSize="10sp"
+                android:textColor="@color/lcd_indicator"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 android:visibility="invisible"
                 tools:visibility="visible" />
@@ -43,10 +185,10 @@
                 android:id="@+id/indicator_alpha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
                 android:text="A"
-                android:textColor="#C8CDD9"
-                android:textSize="10sp"
+                android:textColor="@color/lcd_indicator"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 android:visibility="invisible"
                 tools:visibility="visible" />
@@ -60,19 +202,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DEG"
-                android:textColor="#C8CDD9"
-                android:textSize="10sp" />
+                android:textColor="@color/lcd_indicator"
+                android:textSize="8sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_expression"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="3dp"
             android:fontFamily="monospace"
             android:maxLines="2"
-            android:textColor="#D8DDE7"
-            android:textSize="18sp"
+            android:textColor="@color/lcd_text"
+            android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/status_bar"
             tools:text="123 + 456" />
 
@@ -80,561 +222,275 @@
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             android:fontFamily="monospace"
             android:gravity="end"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textColor="@color/lcd_text"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/tv_expression"
             tools:text="579" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/mode_strip"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_classwiz"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/screen_container">
+        android:layout_marginTop="2dp"
+        android:letterSpacing="0.25"
+        android:text="CLASSWIZ"
+        android:textColor="@color/text_brand"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/screen_container" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="DEG"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="RAD"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="GRA"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="DEC|0.5"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="FRAC|½"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_mode_chip"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="NORM"
-            android:textColor="#E8DCC7"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mode_label_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/mode_strip">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Mode"
-            android:textColor="@color/text_shift_label"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="History"
-            android:textColor="@color/text_shift_label"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+    <!-- Navigation Section -->
     <LinearLayout
         android:id="@+id/nav_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:baselineAligned="false"
+        android:gravity="top"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/mode_label_row">
+        app:layout_constraintTop_toBottomOf="@id/tv_classwiz">
 
-        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-            android:id="@+id/btn_on"
-            style="@style/CasioButton.Nav"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:text=""
-            app:icon="@android:drawable/ic_lock_power_off"
-            app:iconTint="@color/text_on_dark"
-            android:textSize="8sp" />
-
-        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-            android:id="@+id/btn_home"
-            style="@style/CasioButton.Nav"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:text=""
-            app:icon="@android:drawable/ic_menu_view"
-            app:iconTint="@color/text_on_dark"
-            android:textSize="8sp" />
-
-        <ImageButton
-            android:id="@+id/btn_up"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_mode_chip"
-            android:contentDescription="@android:string/untitled"
-            android:padding="6dp"
-            android:src="@android:drawable/arrow_up_float"
-            app:tint="@color/text_on_dark" />
-
-        <ImageButton
-            android:id="@+id/btn_scroll_up"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_mode_chip"
-            android:contentDescription="@android:string/untitled"
-            android:padding="6dp"
-            android:src="@android:drawable/ic_menu_recent_history"
-            app:tint="@color/text_on_dark" />
-
-        <ImageButton
-            android:id="@+id/btn_scroll_down"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_mode_chip"
-            android:contentDescription="@android:string/untitled"
-            android:padding="6dp"
-            android:src="@android:drawable/ic_menu_revert"
-            app:tint="@color/text_on_dark" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/action_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/nav_section">
-
+        <!-- LEFT: ON, SETTINGS, SHIFT -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:textColor="@color/text_shift_label"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+            android:paddingEnd="3dp">
+
+            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+                android:id="@+id/btn_on"
+                style="@style/CasioButton.Nav"
+                android:text="ON"
+                android:textSize="7sp" />
+
             <com.ptithcm.projectcalculater.ui.components.CalculatorButton
                 android:id="@+id/btn_settings"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text=""
-                app:icon="@android:drawable/ic_menu_manage"
-                app:iconPadding="0dp"
-                app:iconTint="@color/text_on_dark" />
+                style="@style/CasioButton.Nav"
+                android:layout_marginTop="4dp"
+                android:text="SETTINGS"
+                android:textSize="7sp" />
+
+                    <TextView
+                        android:id="@+id/tv_shift_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shift"
+                        android:textColor="@color/text_shift_label"
+                        android:textSize="9sp"
+                        android:layout_marginBottom="2dp"
+                        android:alpha="0.95" />
+
+                    <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+                        android:id="@+id/btn_shift"
+                        style="@style/CasioButton.Shift"
+                        android:layout_width="38dp"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="0dp"
+                        android:text="SHIFT"
+                        android:textSize="9sp"
+                        android:contentDescription="Shift" />
         </LinearLayout>
 
+        <!-- CENTER: HOME + D-PAD -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back"
-                android:textColor="@color/text_shift_label"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_back"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text=""
-                app:icon="@android:drawable/ic_menu_revert"
-                app:iconPadding="0dp"
-                app:iconTint="@color/text_on_dark" />
+                android:id="@+id/btn_home"
+                style="@style/CasioButton.Nav"
+                android:text="HOME"
+                android:textSize="7sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dpad_container"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="3dp">
+
+                <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+                    android:id="@+id/btn_ok"
+                    style="@style/CasioButton.Dark"
+                    android:layout_width="38dp"
+                    android:layout_height="56dp"
+                    android:text="OK"
+                    android:textSize="9sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btn_up"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@android:string/untitled"
+                    android:padding="3dp"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:tint="@color/text_on_dark"
+                    app:layout_constraintBottom_toTopOf="@id/btn_ok"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btn_down"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@android:string/untitled"
+                    android:padding="3dp"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:tint="@color/text_on_dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_ok" />
+
+                <ImageButton
+                    android:id="@+id/btn_left"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@android:string/untitled"
+                    android:padding="3dp"
+                    android:src="@android:drawable/ic_media_previous"
+                    android:tint="@color/text_on_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_ok"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btn_right"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@android:string/untitled"
+                    android:padding="3dp"
+                    android:src="@android:drawable/ic_media_next"
+                    android:tint="@color/text_on_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_ok"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
+        <!-- RIGHT: SCROLL -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@drawable/bg_scroll_pill"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
+            android:paddingStart="3dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="4dp">
+
             <ImageButton
-                android:id="@+id/btn_left"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/bg_mode_chip"
+                android:id="@+id/btn_scroll_up"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@android:string/untitled"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_media_previous"
-                app:tint="@color/text_on_dark" />
-        </LinearLayout>
+                android:src="@android:drawable/arrow_up_float"
+                android:tint="@color/text_on_dark" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OK"
-                android:textColor="@color/text_shift_label"
-                android:textSize="8sp"
-                android:textStyle="bold" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_ok"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="OK"
-                android:textSize="9sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
             <ImageButton
-                android:id="@+id/btn_right"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/bg_mode_chip"
+                android:id="@+id/btn_scroll_down"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="2dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@android:string/untitled"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_media_next"
-                app:tint="@color/text_on_dark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Graph"
-                android:textColor="@color/text_shift_label"
-                android:textSize="8sp"
-                android:textStyle="bold" />
-            <ImageButton
-                android:id="@+id/btn_down"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/bg_mode_chip"
-                android:contentDescription="@android:string/untitled"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_menu_compass"
-                app:tint="@color/text_on_dark" />
+                android:src="@android:drawable/arrow_down_float"
+                android:tint="@color/text_on_dark" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/function_label_row"
+    <!-- Function Strip (visual separation from navigation) -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/action_row">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Shift"
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Variable"
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Function"
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=" "
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Catalog"
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Tools"
-            android:textColor="@color/text_shift_label"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+        android:layout_height="6dp"
+        app:layout_constraintTop_toBottomOf="@id/nav_section" />
 
     <LinearLayout
         android:id="@+id/function_strip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/function_label_row">
+        app:layout_constraintTop_toBottomOf="@id/nav_section">
 
-        <LinearLayout
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_back"
+            style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_shift"
-                style="@style/CasioButton.Shift"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="SHIFT"
-                android:textSize="8sp" />
-        </LinearLayout>
+            android:text="BACK"
+            android:textSize="8sp" />
 
-        <LinearLayout
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_variable"
+            style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_variable"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="⇄x"
-                android:textSize="9sp" />
-        </LinearLayout>
+            android:text="VARIABLE"
+            android:textSize="8sp" />
 
-        <LinearLayout
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_function"
+            style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_function"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="f(x)"
-                android:textSize="9sp" />
-        </LinearLayout>
+            android:text="FUNCTION"
+            android:textSize="8sp" />
 
-        <LinearLayout
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_catalog"
+            style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_execute"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="✓"
-                android:textSize="14sp" />
-        </LinearLayout>
+            android:text="CATALOG"
+            android:textSize="8sp" />
 
-        <LinearLayout
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_tools"
+            style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_catalog"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text=""
-                app:icon="@android:drawable/ic_menu_agenda"
-                app:iconTint="@color/text_on_dark"
-                android:textSize="9sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-            <com.ptithcm.projectcalculater.ui.components.CalculatorButton
-                android:id="@+id/btn_tools"
-                style="@style/CasioButton.Dark"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="2dp"
-                android:text="..."
-                android:textSize="11sp" />
-        </LinearLayout>
+            android:text="TOOLS"
+            android:textSize="8sp" />
     </LinearLayout>
 
-    <!-- Main Keypad Grid -->
+    <!-- Main Keypad Grid (6 columns for uniform button sizes) -->
     <GridLayout
         android:id="@+id/main_keypad"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:columnCount="5"
-        android:padding="1dp"
-        android:rowCount="8"
+        android:layout_marginTop="8dp"
+        android:columnCount="6"
+        android:padding="2dp"
+        android:rowCount="12"
         android:useDefaultMargins="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/function_strip">
@@ -658,7 +514,7 @@
                 android:id="@+id/btn_reciprocal"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="1/x"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -681,7 +537,7 @@
                 android:id="@+id/btn_integral"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="∫"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -704,7 +560,7 @@
                 android:id="@+id/btn_sqrt"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="√"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -713,7 +569,7 @@
             android:id="@+id/btn_cbrt"
             style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="36dp"
+            android:layout_height="56dp"
             android:layout_columnWeight="1"
             android:layout_margin="1dp"
             android:text="∛"
@@ -733,7 +589,7 @@
                 android:id="@+id/btn_inv"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="□⁻¹"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -757,7 +613,7 @@
                 android:id="@+id/btn_pi"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="π"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -780,7 +636,7 @@
                 android:id="@+id/btn_sin"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="sin"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -799,7 +655,7 @@
                 android:id="@+id/btn_cos"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="cos"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -818,7 +674,7 @@
                 android:id="@+id/btn_tan"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="tan"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -827,10 +683,20 @@
             android:id="@+id/btn_open_bracket"
             style="@style/CasioButton.Dark"
             android:layout_width="0dp"
-            android:layout_height="36dp"
+            android:layout_height="56dp"
             android:layout_columnWeight="1"
             android:layout_margin="1dp"
             android:text="("
+            android:textSize="11sp" />
+
+        <com.ptithcm.projectcalculater.ui.components.CalculatorButton
+            android:id="@+id/btn_close_bracket"
+            style="@style/CasioButton.Dark"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="1dp"
+            android:text=")"
             android:textSize="11sp" />
 
         <!-- ROW 3: sin⁻¹, cos⁻¹, tan⁻¹, log, ln -->
@@ -848,7 +714,7 @@
                 android:id="@+id/btn_asin"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="sin⁻¹"
                 android:textSize="8sp" />
         </LinearLayout>
@@ -867,7 +733,7 @@
                 android:id="@+id/btn_acos"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="cos⁻¹"
                 android:textSize="8sp" />
         </LinearLayout>
@@ -886,7 +752,7 @@
                 android:id="@+id/btn_atan"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="tan⁻¹"
                 android:textSize="8sp" />
         </LinearLayout>
@@ -905,7 +771,7 @@
                 android:id="@+id/btn_log"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="log"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -924,7 +790,7 @@
                 android:id="@+id/btn_ln"
                 style="@style/CasioButton.Dark"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="56dp"
                 android:text="ln"
                 android:textSize="9sp" />
         </LinearLayout>
@@ -936,7 +802,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="7" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -945,7 +811,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="8" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -954,7 +820,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="9" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -963,7 +829,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="DEL"
             android:textSize="9sp" />
 
@@ -973,7 +839,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="AC" />
 
         <!-- ROW 5: 4, 5, 6, ×, ÷ -->
@@ -983,7 +849,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="4" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -992,7 +858,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="5" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1001,7 +867,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="6" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1010,7 +876,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="×" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1019,7 +885,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="÷" />
 
         <!-- ROW 6: 1, 2, 3, +, − -->
@@ -1029,7 +895,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="1" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1038,7 +904,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="2" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1047,7 +913,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="3" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1056,7 +922,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="+" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1065,7 +931,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="−" />
 
         <!-- ROW 7: 0, ., ×10ⁿ, FORMAT, EXE -->
@@ -1075,7 +941,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="0" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1084,7 +950,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="." />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
@@ -1093,7 +959,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="×10ⁿ"
             android:textSize="9sp" />
 
@@ -1103,20 +969,22 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_margin="1dp"
             android:text="FORMAT"
             android:textSize="8sp" />
 
         <com.ptithcm.projectcalculater.ui.components.CalculatorButton
             android:id="@+id/btn_exe"
-            style="@style/CasioButton.Pill"
+            style="@style/CasioButton.Exec"
             android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="2dp"
+            android:layout_height="44dp"
+            android:layout_columnWeight="2"
+            android:layout_margin="1dp"
+            android:layout_columnSpan="2"
             android:text="EXE"
-            android:textSize="11sp"
-            app:backgroundTint="@color/btn_exec" />
+            android:textSize="14sp"
+            app:backgroundTint="@color/btn_exec"
+            android:contentDescription="Execute" />
 
         <!-- ROW 8: □!, INS, OFF + 2 ô trống -->
         <LinearLayout

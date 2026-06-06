@@ -16,24 +16,27 @@
 
     <!-- Base Style cho phím bấm Casio (Tròn hoàn hảo) -->
     <style name="CasioButton" parent="Widget.Material3.Button.TonalButton">
-        <item name="android:layout_width">48dp</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
         <item name="android:padding">0dp</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Casio.Circle</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Casio.MediumRounded</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">12dp</item>
     </style>
 
     <!-- Nút số (Xám nhạt, Chữ đen) -->
     <style name="CasioButton.Number">
         <item name="backgroundTint">@color/btn_number</item>
         <item name="android:textColor">@color/text_on_number</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
     </style>
 
     <!-- Nút chức năng/Toán tử (Đen nhám, Chữ trắng) -->
@@ -54,7 +57,7 @@
     <!-- Viên thuốc: DEL / AC / FORMAT / EXE -->
     <style name="ShapeAppearance.Casio.Pill" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">22dp</item>
+        <item name="cornerSize">12dp</item>
     </style>
 
     <style name="CasioButton.Pill" parent="CasioButton.Dark">
@@ -62,6 +65,16 @@
         <item name="android:minHeight">44dp</item>
         <item name="android:paddingStart">6dp</item>
         <item name="android:paddingEnd">6dp</item>
+    </style>
+
+    <!-- Exec button: large, prominent, golden accent -->
+    <style name="CasioButton.Exec" parent="CasioButton.Pill">
+        <item name="backgroundTint">@color/btn_exec</item>
+        <item name="android:textColor">@color/text_on_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:padding">6dp</item>
     </style>
 
     <!-- Nút AC/DEL (Đỏ cam) -->
@@ -83,6 +96,29 @@
     <style name="ShapeAppearance.Casio.Circle" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Medium rounded corners for modern aesthetic -->
+    <style name="ShapeAppearance.Casio.MediumRounded" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <!-- Settings Screen Styles -->
+    <style name="SettingsLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_on_dark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SettingsToggleButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_on_dark</item>
+        <item name="strokeColor">#444444</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

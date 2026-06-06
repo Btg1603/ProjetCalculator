@@ -122,6 +122,40 @@
     <string name="menu_equation">Equation</string>
 
     <!-- ============================================
+         SETTINGS STRINGS (Cài đặt)
+         ============================================ -->
+    <string name="settings_title">Cài đặt</string>
+    <string name="settings_tab_general">Chung</string>
+    <string name="settings_tab_display">Màn hình</string>
+    <string name="settings_tab_keyboard">Bàn phím</string>
+    <string name="settings_tab_format">Định dạng</string>
+    <string name="settings_top_calculation">Tính toán</string>
+    <string name="settings_top_unit_converter">Bộ chuyển đổi đơn vị</string>
+    <string name="settings_top_programming">Lập trình</string>
+    <string name="settings_top_graph">Đồ thị</string>
+    <string name="settings_top_info">Thông tin</string>
+
+    <string name="settings_angle_unit">Chế độ góc</string>
+    <string name="settings_angle_deg">DEGREE</string>
+    <string name="settings_angle_rad">RADIAN</string>
+    <string name="settings_angle_grad">GRADIAN</string>
+
+    <string name="settings_result_format">Kết quả ở dạng</string>
+    <string name="settings_result_fraction">Phân số</string>
+    <string name="settings_result_decimal">Số thập phân</string>
+
+    <string name="settings_implicit_mul">Phép nhân ẩn</string>
+    <string name="settings_implicit_mul_off">1/2π = 1/2*π</string>
+    <string name="settings_implicit_mul_on">1/2π = 1/(2*π)</string>
+
+    <string name="settings_decimal_format">Định dạng số thập phân</string>
+    <string name="settings_decimal_format_desc">Fixed, ENG, ENG SI and SCI modes; Độ chính xác số thập phân</string>
+
+    <string name="settings_percent_calc">Kiểu tính toán phần trăm</string>
+    <string name="settings_percent_calc_100_2">100 + 20% = 100.2</string>
+    <string name="settings_percent_calc_120">100 + 20% = 120</string>
+
+    <!-- ============================================
          ERROR & STATUS MESSAGES
          ============================================ -->
     <string name="error_syntax">Syntax Error</string>
